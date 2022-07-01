@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteTask } from '../redux/actions'
 
-import { Button, Flex, Heading, Stack, Text } from '@chakra-ui/react'
+import { Button, Divider, Flex, Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 
 function ToDoList() {
   const tasks = useSelector(state => state.taskArray)
@@ -17,8 +17,10 @@ function ToDoList() {
   return (
     <div >
       <Flex justify={'center'} align={'center'}>
-        <Stack justify={'center'} spacing={4} w={'full'} maxW={'md'} rounded={'xl'} boxShadow={'lg'} p={6} my={12} m={2}>
-          <Heading m={4}>ToDo List</Heading>
+        <Stack bg={useColorModeValue('white', 'gray.700')} justify={'center'} spacing={4} w={'full'} maxW={'md'} rounded={'xl'} boxShadow={'lg'} p={6} my={12} m={2}>
+          <Heading m={4}>To-Do List</Heading>
+          <Divider border={{ color: 'black', size: '15px', style: 'solid' }}></Divider>
+
           {tasks.length !== 0 ? (
 
             tasks.map((task, i) => {
@@ -28,9 +30,9 @@ function ToDoList() {
                     {task}
                   </Text>
 
-                  <Button colorScheme='teal' size='md' _hover={{bg: 'teal.400', }}
-                  
-                  onClick={() => handleDelete(i)}>
+                  <Button colorScheme='teal' size='md' _hover={{ bg: 'teal.400', }}
+
+                    onClick={() => handleDelete(i)}>
 
                     delete
                   </Button>
@@ -39,7 +41,9 @@ function ToDoList() {
               </div>
             })
           ) : (
-            <div>nothing to see here</div>
+            <Text fontWeight={'medium'} align={'center'}>
+              You currently have no errands!
+            </Text>
           )
           }
         </Stack>

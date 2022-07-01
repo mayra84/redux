@@ -28,7 +28,7 @@ function ToDo() {
                             Enter an Errand
                         </Heading>
                         <FormControl>
-                            <FormLabel>ToDo</FormLabel>
+                            <FormLabel>To-Do</FormLabel>
                             <Input placeholder="Ex: Wash the car" _placeholder={{ color: 'gray.500' }} type="text"
 
                                 value={task} onChange={e => setTask(e.target.value)}
