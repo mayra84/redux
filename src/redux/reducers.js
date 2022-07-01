@@ -1,16 +1,16 @@
 const defaultState = {
-    toDoArray: [],
+    taskArray: [],
 }
 
 export function taskReducer(state = defaultState, action) {
     switch (action.type) {
         case 'ADD_TASK':
             return {
-                toDoArray : [...state.toDoArray, action.task]
+                taskArray : [...state.taskArray, action.task]
                 }
         case 'DELETE_TASK':
             return {
-                toDoArray: state.toDoArray.filter((todo, i) => {
+                taskArray: state.taskArray.filter((todo, i) => {
                 return i !== action.index
             })
         }
